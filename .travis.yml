@@ -28,6 +28,8 @@ cache:
     - $HOME/.stack
 
 install:
+  - sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang-4.0 100
+  - sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-4.0 100
   - stack setup
   - stack install llvm-hs
   - stack build
