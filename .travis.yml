@@ -1,7 +1,7 @@
 language: c
 os: linux
 dist: trusty
-sudo: false
+sudo: true
 
 compiler: clang
 
@@ -16,6 +16,10 @@ env:
   - CC=clang-4.0 && CXX=clang++-4.0
 
 before_install:
+  - sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang-4.0 100
+  - sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-4.0 100
+  - clang --version
+
   # Download and unpack the stack executable
   - mkdir -p ~/.local/bin
   - export PATH=$HOME/.local/bin:$PATH
@@ -28,8 +32,6 @@ cache:
     - $HOME/.stack
 
 install:
-  - sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang-4.0 100
-  - sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-4.0 100
   - stack setup
   - stack install llvm-hs
   - stack build
