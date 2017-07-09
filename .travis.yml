@@ -12,6 +12,9 @@ addons:
     packages:
       - clang-4.0
 
+env:
+  - CC=clang-4.0 && CXX=clang++-4.0
+
 before_install:
   # Download and unpack the stack executable
   - mkdir -p ~/.local/bin
