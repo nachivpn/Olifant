@@ -13,7 +13,8 @@ addons:
       - clang-4.0
 
 before_install:
-  - sudo -E apt-get -y --force-yes purge clang-3.5.0
+  - sudo -E apt-get -y --force-yes purge clang*
+  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install clang-4.0
   - clang --version
 
   # Download and unpack the stack executable
