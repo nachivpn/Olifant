@@ -1,4 +1,13 @@
-language: haskell
+dist: trusty
+os: linux
+addons:
+  apt:
+    sources:
+      - llvm-toolchain-trusty-4.0
+    packages:
+      - clang-4.0
+
+language: c
 sudo: false
 before_install:
   # Download and unpack the stack executable
