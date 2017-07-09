@@ -12,13 +12,8 @@ addons:
     packages:
       - clang-4.0
 
-env:
-  - CC=clang-4.0 && CXX=clang++-4.0
-
 before_install:
-  - sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang-4.0 100
-  - sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-4.0 100
-  - sudo -E apt-get -y --force-yes purge clang-3.5
+  - sudo -E apt-get -y --force-yes purge clang
   - clang --version
 
   # Download and unpack the stack executable
