@@ -1,5 +1,10 @@
-dist: trusty
+language: c
 os: linux
+dist: trusty
+sudo: false
+
+compiler: clang
+
 addons:
   apt:
     sources:
@@ -7,8 +12,6 @@ addons:
     packages:
       - clang-4.0
 
-language: c
-sudo: false
 before_install:
   # Download and unpack the stack executable
   - mkdir -p ~/.local/bin
