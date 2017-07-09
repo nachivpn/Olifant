@@ -28,7 +28,9 @@ cache:
     - $HOME/.stack
 
 install:
-  - stack setup && stack build
+  - stack setup
+  - stack install llvm-hs
+  - stack build
 
 script:
   - stack --no-terminal --skip-ghc-check --no-system-ghc test
